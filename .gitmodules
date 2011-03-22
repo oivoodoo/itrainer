@@ -13,3 +13,24 @@
 [submodule "modules/qs"]
 	path = modules/qs
 	url = git://github.com/visionmedia/node-querystring.git
+[submodule "modules/mime"]
+	path = modules/mime
+	url = https://github.com/bentomas/node-mime.git
+[submodule "modules/jade"]
+	path = modules/jade
+	url = git://github.com/visionmedia/jade.git
+[submodule "modules/expresso"]
+	path = modules/expresso
+	url = git://github.com/visionmedia/expresso.git
+[submodule "modules/should"]
+	path = modules/should
+	url = git://github.com/visionmedia/should.js.git
+[submodule "modules/connect-form"]
+	path = modules/connect-form
+	url = git://github.com/visionmedia/connect-form.git
+[submodule "modules/stylus"]
+	path = modules/stylus
+	url = https://github.com/LearnBoost/stylus.git
+[submodule "modules/mongodb"]
+	path = modules/mongodb
+	url = https://github.com/christkv/node-mongodb-native.git
