@@ -1,0 +1,15 @@
+[submodule "modules/express"]
+	path = modules/express
+	url = https://github.com/visionmedia/express.git
+[submodule "modules/mongoose"]
+	path = modules/mongoose
+	url = https://github.com/LearnBoost/mongoose.git
+[submodule "modules/connect-mongodb"]
+	path = modules/connect-mongodb
+	url = https://github.com/masylum/connect-mongodb.git
+[submodule "modules/connect"]
+	path = modules/connect
+	url = https://github.com/senchalabs/connect.git
+[submodule "modules/qs"]
+	path = modules/qs
+	url = git://github.com/visionmedia/node-querystring.git
