@@ -1,3 +1,5 @@
+var namespace = require('express-namespace');
+
 module.exports = function(app) {
   app.namespace('/admin', function() {
     

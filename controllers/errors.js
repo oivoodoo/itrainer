@@ -1,12 +1,12 @@
 var sys = require ('sys');
-    // , hoptoad = require('hoptoad-notifier/hoptoad-notifier').Hoptoad;
+    , Hoptoad = require('hoptoad-notifier/hoptoad-notifier').Hoptoad;
     
-//hoptoad.key = 'c253550bf19349d650d1bdc129d3dc59'
+Hoptoad.key = 'c253550bf19349d650d1bdc129d3dc59'
 
 module.exports = function(app) {
   
   process.addListener('uncaughtException', function (error, stack) {
-  //  Hoptoad.notify(error);   
+    Hoptoad.notify(error);   
   });
 
   function NotFound(msg) {
