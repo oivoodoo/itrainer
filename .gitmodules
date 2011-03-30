@@ -64,3 +64,6 @@
 [submodule "modules/connect-assetmanager-handlers"]
 	path = modules/connect-assetmanager-handlers
 	url = https://github.com/mape/connect-assetmanager-handlers.git
+[submodule "modules/hoptoad-notifier"]
+	path = modules/hoptoad-notifier
+	url = https://github.com/sr/node-hoptoad-notifier.git

@@ -1,13 +1,12 @@
-var sys = require ('sys');
+var sys = require ('sys')
+    , hoptoad = require('hoptoad-notifier').Hoptoad;
+    
+hoptoad.key = 'c253550bf19349d650d1bdc129d3dc59'
 
 module.exports = function(app) {
   
-  var sys = require("sys");
-  process.addListener('uncaughtException', function (err, stack) {
-    console.log(sys.inspect(err));
-    console.log(sys.inspect(stack));
-    err.message && log(err.message);
-    err.stack && log(err.stack);
+  process.addListener('uncaughtException', function (error, stack) {
+    Hoptoad.notify(error);   
   });
 
   function NotFound(msg) {
