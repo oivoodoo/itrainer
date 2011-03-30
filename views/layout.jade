@@ -1,0 +1,36 @@
+!!!
+html
+  head
+    title Каталог Медицинских Услуг
+    != helper.style('styles')
+  body
+    #page
+      #page_inner
+        #menu
+          ul
+            li.l1
+              a(href='/') Home
+            li.l2
+              a(href='http://oivoodoo.tumblr.com/') Blog
+            li.l3
+              a(href='/projects') Projects
+            li.l4
+              a(href='/contacts') Contacts
+        .clearer
+        #container
+          != body
+        #footer
+          ul#icons
+            li#rss
+              a(href='http://oivoodoo.tumblr.com/rss', title='Subscribe to my RSS-feed')
+                strong RSS
+            li#followme
+              a(href='http://twitter.com/oivoodoo', title='Follow me on twitter')
+                strong Twitter
+            li#facebook
+              a(href='http://www.facebook.com/alexander.korsak', title='Show my facebook page')
+                strong Facebook
+            li#email
+              a(href='mailto:alex.korsak@gmail.com', title='Contacts me')
+                strong Email
+  != helper.scripts(assets)
