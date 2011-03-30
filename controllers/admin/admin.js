@@ -3,11 +3,11 @@ var namespace = require('express-namespace');
 module.exports = function(app) {
 
   app.namespace('/admin', function() {
-    app.all('/admin(/*)?', loadUser);
+    app.all('(/*)?', loadUser);
   });
   
   function authenticateFromLoginToken(req, res, next) {
-      var cookie = JSON.parse(req.cookies.logintoken);
+    var cookie = JSON.parse(req.cookies.logintoken);
     
       LoginToken.findOne({ email: cookie.email,
                            series: cookie.series,
@@ -32,9 +32,9 @@ module.exports = function(app) {
           }
         });
       }));
-    };
+  };
     
-    function loadUser(req, res, next) {
+  function loadUser(req, res, next) {
       if (req.session.user_id) {
         User.findById(req.session.user_id, function(err, user) {
           if (user) {
@@ -49,10 +49,10 @@ module.exports = function(app) {
       } else {
         res.redirect('/sessions/new');
       }
-    };
+  };
   
   return {
-    authenticateFromLoginToken: authenticateFromLoginToken,
+    authenticate: authenticateFromLoginToken,
     loadUser: loadUser
   };
 };

@@ -1,9 +1,8 @@
-var namespace = require('express-namespace')
-    , admin = require('./admin');
-    
-    console.log("ADMIN+ " + require('sys').inspect(admin.loadUser));
+var namespace = require('express-namespace');
 
 module.exports = function(app) {
+
+  var admin = require('./admin')(app);
   
   app.namespace('/admin', function() {  
     app.get('/sessions/new', function(req, res) {

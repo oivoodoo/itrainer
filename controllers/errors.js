@@ -1,6 +1,6 @@
-var sys = require ('sys');
-    , Hoptoad = require('hoptoad-notifier/hoptoad-notifier').Hoptoad;
-    
+var sys = require ('sys')
+    , Hoptoad = require('hoptoad-notifier/lib/hoptoad-notifier').Hoptoad;
+
 Hoptoad.key = 'c253550bf19349d650d1bdc129d3dc59'
 
 module.exports = function(app) {
