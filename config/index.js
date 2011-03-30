@@ -11,7 +11,6 @@ var assetsConfig = {
       , 'dataType': 'javascript'
       , 'files': [
         'jquery.min.js'
-        , 'class.horinaja.jquery.js'
         , 'application.js'
       ]
       , 'postManipulate': {
