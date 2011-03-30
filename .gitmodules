@@ -58,3 +58,9 @@
 [submodule "modules/request"]
 	path = modules/request
 	url = https://github.com/mikeal/request.git
+[submodule "modules/connect-assetmanager"]
+	path = modules/connect-assetmanager
+	url = https://github.com/mape/connect-assetmanager.git
+[submodule "modules/connect-assetmanager-handlers"]
+	path = modules/connect-assetmanager-handlers
+	url = https://github.com/mape/connect-assetmanager-handlers.git
