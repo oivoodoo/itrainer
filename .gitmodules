@@ -34,3 +34,27 @@
 [submodule "modules/mongodb"]
 	path = modules/mongodb
 	url = https://github.com/christkv/node-mongodb-native.git
+[submodule "modules/express-namespace"]
+	path = modules/express-namespace
+	url = https://github.com/visionmedia/express-namespace.git
+[submodule "modules/nodemailer"]
+	path = modules/nodemailer
+	url = https://github.com/andris9/Nodemailer.git
+[submodule "modules/node-markdown"]
+	path = modules/node-markdown
+	url = https://github.com/andris9/node-markdown.git
+[submodule "modules/date-utils"]
+	path = modules/date-utils
+	url = https://github.com/JerrySievert/node-date-utils.git
+[submodule "modules/express-messages"]
+	path = modules/express-messages
+	url = https://github.com/visionmedia/express-messages.git
+[submodule "modules/uglify-js"]
+	path = modules/uglify-js
+	url = https://github.com/mishoo/UglifyJS.git
+[submodule "modules/step"]
+	path = modules/step
+	url = https://github.com/creationix/step.git
+[submodule "modules/request"]
+	path = modules/request
+	url = https://github.com/mikeal/request.git
