@@ -9,7 +9,7 @@ var sys = require('sys')
     , db
     , stylus = require('stylus');
 
-var config = require('./config/config').config;
+var config = require('./config').config;
 
 var app = module.exports = express.createServer(
      connect.cookieParser()
@@ -38,7 +38,7 @@ app.mongoose = mongoose;
 
 require('./config/db')(app);
 require('./models')(app);
-require('./routes')(app);
+require('./controllers')(app);
 require('./helpers')(app);
 
 if (!module.parent) {
