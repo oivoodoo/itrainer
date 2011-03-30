@@ -1,0 +1,3 @@
+.monitor
+nodemon-ignore
+config/settings.js
