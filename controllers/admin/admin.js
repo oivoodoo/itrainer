@@ -1,7 +1,12 @@
+var namespace = require('express-namespace');
+
 module.exports = function(app) {
+
   app.namespace('/admin', function() {
-    
-    function authenticateFromLoginToken(req, res, next) {
+    app.all('/admin(/*)?', loadUser);
+  });
+  
+  function authenticateFromLoginToken(req, res, next) {
       var cookie = JSON.parse(req.cookies.logintoken);
     
       LoginToken.findOne({ email: cookie.email,
@@ -45,7 +50,9 @@ module.exports = function(app) {
         res.redirect('/sessions/new');
       }
     };
-    
-    app.all('/admin(/*)?', loadUser);
-  });
+  
+  return {
+    authenticateFromLoginToken: authenticateFromLoginToken,
+    loadUser: loadUser
+  };
 };

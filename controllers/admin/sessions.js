@@ -1,8 +1,11 @@
-var namespace = require
+var namespace = require('express-namespace')
+    , admin = require('./admin');
+    
+    console.log("ADMIN+ " + require('sys').inspect(admin.loadUser));
 
 module.exports = function(app) {
-  app.namespace('/admin', function() {
-    
+  
+  app.namespace('/admin', function() {  
     app.get('/sessions/new', function(req, res) {
       res.render('sessions/new.jade', {
         locals: { user: new User() }
@@ -31,7 +34,7 @@ module.exports = function(app) {
       }); 
     });
     
-    app.del('/sessions', loadUser, function(req, res) {
+    app.del('/sessions', admin.loadUser, function(req, res) {
       if (req.session) {
         LoginToken.remove({ email: req.currentUser.email }, function() {});
         res.clearCookie('logintoken');
