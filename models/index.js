@@ -1,1 +1,3 @@
-empty file.
+module.exports = function(app) {
+  
+  };
