@@ -7,7 +7,8 @@ var sys = require('sys')
     , mongoose = require('mongoose')
     , mongoStore = require('connect-mongodb')
     , db
-    , stylus = require('stylus');
+    , stylus = require('stylus')
+    , i18n = require('connect-i18n');
 
 var config = require('./config').config;
 
@@ -23,6 +24,7 @@ var app = module.exports = express.createServer(
     , connect.bodyParser()
     , connect.methodOverride()
     , connect.favicon()
+    , i18n({default_locale: 'ru_ru'}, function(locals) { console.log(locals); })
     // , connect.session({ secret: '9FF96302-4633-11E0-AAE4-38FEDED72085' })
 );
 

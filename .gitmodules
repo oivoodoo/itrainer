@@ -67,3 +67,6 @@
 [submodule "modules/hoptoad-notifier"]
 	path = modules/hoptoad-notifier
 	url = https://github.com/sr/node-hoptoad-notifier.git
+[submodule "modules/connect-i18n"]
+	path = modules/connect-i18n
+	url = https://github.com/masylum/connect-i18n.git
