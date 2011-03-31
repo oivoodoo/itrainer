@@ -29,6 +29,7 @@ var app = module.exports = express.createServer(
 
 app.config = config;
 app.mongoose = mongoose;
+app.schemes = {};
 
 require('./config/db')(app);
 
