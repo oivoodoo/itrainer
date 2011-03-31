@@ -1,6 +1,9 @@
 var namespace = require('express-namespace');
 
 module.exports = function(app) {
+  
+  var User = app.User
+      , LoginToken = app.LoginToken;
 
   app.namespace('/admin', function() {
     app.all('(/*)?', loadUser);
@@ -13,7 +16,7 @@ module.exports = function(app) {
                            series: cookie.series,
                            token: cookie.token }, (function(err, token) {
         if (!token) {
-          res.redirect('/sessions/new');
+          res.redirect('/admin/sessions/new');
           return;
         }
     
@@ -28,7 +31,7 @@ module.exports = function(app) {
               next();
             });
           } else {
-            res.redirect('/sessions/new');
+            res.redirect('/admin/sessions/new');
           }
         });
       }));
@@ -41,13 +44,13 @@ module.exports = function(app) {
             req.currentUser = user;
             next();
           } else {
-            res.redirect('/sessions/new');
+            res.redirect('/admin/sessions/new');
           }
         });
       } else if (req.cookies.logintoken) {
         authenticateFromLoginToken(req, res, next);
       } else {
-        res.redirect('/sessions/new');
+        res.redirect('/admin/sessions/new');
       }
   };
   
