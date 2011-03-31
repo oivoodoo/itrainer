@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get('/sessions/new', function(req, res) {
       res.render('admin/sessions/new', {
         locals: { user: new User() }
+        , layout: 'admin/admin'
       });
     });
     

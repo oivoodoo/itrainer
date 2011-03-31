@@ -1,0 +1,13 @@
+h2 Вход в панель администратора
+form.users#login(method='post', action='admin/sessions')
+  div
+    label Почта:
+    input(name='user[email]', value=user.email || '')
+  div
+    label Пароль:
+    input(name='user[password]', value=user.password || '', type='password')
+  div
+    label(for='remember_me') Запомнить меня:
+    input#remember_me(type='checkbox', name='remember_me')
+  div
+    input(type='submit', value='Войти')
