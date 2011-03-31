@@ -24,13 +24,13 @@ module.exports = function(app) {
             var loginToken = new LoginToken({ email: user.email });
             loginToken.save(function() {
               res.cookie('logintoken', loginToken.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
-              res.redirect('/documents');
+              res.redirect('/admin');
             });
           } else {
-            res.redirect('/documents');
+            res.redirect('/admin');
           }
         } else {
-          req.flash('error', 'Incorrect credentials');
+          req.flash('error', 'Вы ввели неверные пользовательские данные, попробуйте снова.');
           res.redirect('admin/sessions/new');
         }
       }); 

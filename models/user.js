@@ -2,7 +2,7 @@ var crypto = require('crypto');
 
 module.exports = function(app) {
   
-  var Schema= app.mongoose.Schema;
+  var Schema = app.mongoose.Schema;
   
   function validatePresenceOf(value) {
     return value && value.length;
@@ -11,7 +11,8 @@ module.exports = function(app) {
   User = new Schema({
     'email': { type: String, validate: [validatePresenceOf, 'an email is required'], index: { unique: true } },
     'hashed_password': String,
-    'salt': String
+    'salt': String,
+    'role': String
   });
 
   User.virtual('id')
@@ -40,6 +41,9 @@ module.exports = function(app) {
   });
 
   User.pre('save', function(next) {
+    if (validatePresenceOf(this.role)) {
+      this.role = app.Roles.user.name;
+    }
     if (!validatePresenceOf(this.password)) {
       next(new Error('Invalid password'));
     } else {

@@ -9,6 +9,10 @@ module.exports = function(app) {
     app.all('(/*)?', loadUser);
   });
   
+  app.get('/admin(/*)?', function(req, res, next) {
+    res.render('admin/index', {layout: 'admin/admin'});
+  });
+  
   function authenticateFromLoginToken(req, res, next) {
     var cookie = JSON.parse(req.cookies.logintoken);
     
