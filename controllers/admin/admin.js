@@ -5,10 +5,10 @@ module.exports = function(app) {
   app.namespace('/admin', function() {
     app.all('(/*)?', loadUser);
   });
-  
+
   function authenticateFromLoginToken(req, res, next) {
     var cookie = JSON.parse(req.cookies.logintoken);
-    
+
       LoginToken.findOne({ email: cookie.email,
                            series: cookie.series,
                            token: cookie.token }, (function(err, token) {
@@ -16,12 +16,12 @@ module.exports = function(app) {
           res.redirect('/sessions/new');
           return;
         }
-    
+
         User.findOne({ email: token.email }, function(err, user) {
           if (user) {
             req.session.user_id = user.id;
             req.currentUser = user;
-    
+
             token.token = token.randomToken();
             token.save(function() {
               res.cookie('logintoken', token.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
@@ -33,7 +33,7 @@ module.exports = function(app) {
         });
       }));
   };
-    
+
   function loadUser(req, res, next) {
       if (req.session.user_id) {
         User.findById(req.session.user_id, function(err, user) {
@@ -50,7 +50,7 @@ module.exports = function(app) {
         res.redirect('/sessions/new');
       }
   };
-  
+
   return {
     authenticate: authenticateFromLoginToken,
     loadUser: loadUser
