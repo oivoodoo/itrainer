@@ -2,12 +2,15 @@ var namespace = require('express-namespace');
 
 module.exports = function(app) {
 
-  var admin = require('./admin')(app);
+  var admin = require('./admin')(app)
+      , User = app.User
+      , LoginToken = app.LoginToken;
   
   app.namespace('/admin', function() {  
     app.get('/sessions/new', function(req, res) {
-      res.render('sessions/new.jade', {
+      res.render('admin/sessions/new', {
         locals: { user: new User() }
+        , layout: 'admin/admin'
       });
     });
     
@@ -21,14 +24,14 @@ module.exports = function(app) {
             var loginToken = new LoginToken({ email: user.email });
             loginToken.save(function() {
               res.cookie('logintoken', loginToken.cookieValue, { expires: new Date(Date.now() + 2 * 604800000), path: '/' });
-              res.redirect('/documents');
+              res.redirect('/admin');
             });
           } else {
-            res.redirect('/documents');
+            res.redirect('/admin');
           }
         } else {
-          req.flash('error', 'Incorrect credentials');
-          res.redirect('/sessions/new');
+          req.flash('error', 'Вы ввели неверные пользовательские данные, попробуйте снова.');
+          res.redirect('admin/sessions/new');
         }
       }); 
     });
@@ -39,7 +42,7 @@ module.exports = function(app) {
         res.clearCookie('logintoken');
         req.session.destroy(function() {});
       }
-      res.redirect('/sessions/new');
+      res.redirect('admin/sessions/new');
     });
   });
 };

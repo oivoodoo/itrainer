@@ -25,11 +25,11 @@ var app = module.exports = express.createServer(
     , connect.methodOverride()
     , connect.favicon()
     , i18n({default_locale: 'ru_ru'}, function(locals) { console.log(locals); })
-    , connect.session({ secret: '9FF96302-4633-11E0-AAE4-38FEDED72085' })
 );
 
 app.config = config;
 app.mongoose = mongoose;
+app.schemes = {};
 
 require('./config/db')(app);
 
