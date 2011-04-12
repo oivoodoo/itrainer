@@ -1,7 +1,7 @@
 module.exports = function(app) {
   
   var Schema = app.mongoose.Schema;
-  
+
   City = new Schema({
     name: {type: String, index: true}
     , regions: [app.schemes.CityRegion]

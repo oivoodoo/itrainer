@@ -16,9 +16,10 @@ module.exports = function(app) {
   var c = new City();
   var r = new CityRegion();
   
-  c.regions.push(r);
-  c.save(function(err) {
-    if(!err) console.log(err);
-    else console.log('good!');
+  r.save(function(r_err) {
+    c.regions.push(r);  
+    c.save(function(c_err) {
+      console.log("error!");
+    });
   });
 };
